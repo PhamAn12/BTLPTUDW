@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route:: group(['prefix' =>'admin'],function() {
+    Route:: group(['prefix'=> 'user'],function(){
+        Route:: get('user_list','user@user_list');
+    });
+    
+});
+Route:: get('thu',function() {
+    return view('admin.user.user_list');
+});
