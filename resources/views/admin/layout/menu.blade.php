@@ -18,25 +18,23 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Cuộc khảo sát<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Category</a>
+                                    <a href="#">Xem</a>
                                 </li>
-                                <li>
-                                    <a href="#">Add Category</a>
-                                </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                            <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Phiếu<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Product</a>
+                                    <a href="admin/servey/servey_sheet_list">Xem Phiếu</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add Product</a>
+                                    <a href="admin/servey/servey_sheet_add">Thêm Câu Hỏi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -45,10 +43,26 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List User</a>
+                                    <a href="">Danh sách<span class="fa arrow"></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Sinh viên</a>
+                                        </li>
+                                        <li>
+                                            <a href="admin/user/user_list">Giảng viên</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Add User</a>
+                                    <a href="#">Thêm<span class="fa arrow"></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Sinh viên</a>
+                                        </li>
+                                        <li>
+                                            <a href="admin/user/user_add">Giảng viên</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

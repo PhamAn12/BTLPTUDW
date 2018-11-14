@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User
+                        <h1 class="page-header">Phiếu Khảo Sát
                             <small>List</small>
                         </h1>
                     </div>
@@ -15,28 +15,24 @@
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>PassWord</th>
-                                <th>Create At</th>
+                                <th>Question</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($user as $a)
+                        @foreach($sheet as $s)
                             <tr class="odd gradeX" align="center">
-                                <td>{{$a->id}}</td>
-                                <td>{{$a->user}}</td>
-                                <td>{{$a->email}}</td>
-                                <td>{{$a->password}}</td>
-                                <td>{{$a->create_at}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/xoa/{{$a->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/user_edit/{{$a->id}}">Edit</a></td>
+                                <td>{{$s->id}}</td>
+                                <td>{{$s->question_text}}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/servey/delete/{{$s->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/servey/servey_sheet_edit/{{$s->id}}">Edit</a></td>
                             </tr>
-                            @endforeach
+                        @endforeach
+                            
                         </tbody>
                     </table>
+                    <button>Lưu form</button>
                 </div>
                 <!-- /.row -->
             </div>

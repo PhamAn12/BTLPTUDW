@@ -14,7 +14,7 @@
                         <form action="" method="POST">
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" name="txtUser" value="quoctuan" disabled />
+                                <input class="form-control" name="txtUser" value='BỐC BÁT HỌ' disabled />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>

@@ -11,7 +11,8 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="admin/user/user_add" method="POST">
+                        {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Username</label>
                                 <input class="form-control" name="txtUser" placeholder="Please Enter Username" />
@@ -27,6 +28,10 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày Tạo</label>
+                                <input type="date" class="form-control" name="txtdate"  />
                             </div>
                             <div class="form-group">
                                 <label>User Level</label>
