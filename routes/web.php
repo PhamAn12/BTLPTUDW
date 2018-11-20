@@ -16,7 +16,13 @@ Route::get('/', function () {
 });
 Route::get('admin/login','UserController@getlogin');
 Route::post('admin/login','UserController@postlogin');
-Route:: group(['prefix' =>'admin'],function() {
+
+Route::get('admin/dashboard','UserController@getdashboard');
+
+
+Route::get('admin/logout','UserController@getlogout');
+Route:: group(['prefix' =>'admin','middleware'=>'loginAdmin'],function() {
+    Route::get('dashboard','UserController@getdashboard');
     Route:: group(['prefix'=> 'user'],function(){
         Route:: get('user_list','ControllerUserLecturer@user_list');
 
@@ -27,6 +33,8 @@ Route:: group(['prefix' =>'admin'],function() {
         Route:: post('user_add','ControllerUserLecturer@user_post_add');
 
         Route:: get('xoa/{id}','ControllerUserLecturer@user_delete');    
+
+        
     });
     Route::group(['prefix'=>'servey'],function() {
         Route::get('servey_sheet_list','ControllerServeySheet@servey_sheet_list');
@@ -40,13 +48,16 @@ Route:: group(['prefix' =>'admin'],function() {
         Route:: get('delete/{id}','ControllerServeySheet@servey_sheet_delete');
     });
 });
+Route:: group(['prefix'=>'user'],function() {
+    Route::group(['prefix'=>'students'],function() {
+        Route:: get('dashboard','UserController@getDashboardStudent');
+    });
+
+    Route::group(['prefix'=>'lecturers'],function() {
+        Route:: get('dashboard','UserController@getDashboardLecturer');
+    });
+});
 
 
 
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-//Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

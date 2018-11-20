@@ -29,16 +29,16 @@ class ControllerUserLecturer extends Controller
         $user_student->email = $request->txtEmail;
         $user_student->password = $request->txtPass;
         $user_student->rePassword = $request->txtRePass;
-        $user_student->id_permission = 1;
+        
         $user_student->create_at = Carbon::now();
         $user_student->save();
         $user = new User;
-        $user->name = "Khá Bảnh";
+        
         $user->username = $request->txtUser;
         $user->password = bcrypt($request->txtPass);
-        $user->email = $request->txtEmail;
-    //    $user->create_at = Carbon::now();
-    //    $user->update_at = Carbon::now();        
+        $user->role = 2;
+        $user->created_at = Carbon::now();
+        $user->updated_at = Carbon::now();        
         $user->save();
         return redirect('admin/user/user_list');
     }

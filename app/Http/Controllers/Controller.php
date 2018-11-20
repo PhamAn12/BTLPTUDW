@@ -12,15 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function __construct() {
-        $this->checkLogin();
-    }
-
-    function checkLogin() {
-        if (Auth::check()) {
-            view()->share('user_login',Auth::user());
-        }
-    }
+    
 }
 
 

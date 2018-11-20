@@ -9,7 +9,17 @@ class UserController extends Controller
     public function getlogin() {
         return view ('admin.login');
     }
+    public function getdashboard() {
+        return view ('admin.dashboard');
+    }
 
+    public function getDashboardStudent() {
+        return view('user.students.dashboardStudent');
+    }
+
+    public function getDashboardLecturer() {
+        return view ('user.lecturers.dashboardLecturer');
+    }
     public function postlogin(Request $request) {
         $this->validate($request,[
             'username'=>'required',
@@ -23,10 +33,16 @@ class UserController extends Controller
 
         if(Auth::attempt(['username'=>$request->username,
             'password'=> $request->password])) {
-                return redirect('admin/user/user_add');
+                return redirect('admin/dashboard');
         }
+            
         else 
             return redirect ('admin/login')->with('thongbao','Đăng nhập không thành công');
 
+    }
+
+    public function getlogout() {
+        Auth::logout();
+        return redirect ('admin/login');
     }
 }
