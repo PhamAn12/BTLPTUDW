@@ -21,7 +21,7 @@ Route::get('admin/dashboard','UserController@getdashboard');
 
 
 Route::get('admin/logout','UserController@getlogout');
-Route:: group(['prefix' =>'admin','middleware'=>'loginAdmin'],function() {
+Route:: group(['prefix' =>'admin',/*'middleware'=>'loginAdmin'*/],function() {
     Route::get('dashboard','UserController@getdashboard');
     Route:: group(['prefix'=> 'user'],function(){
         Route:: get('user_list','ControllerUserLecturer@user_list');
@@ -48,7 +48,7 @@ Route:: group(['prefix' =>'admin','middleware'=>'loginAdmin'],function() {
         Route:: get('delete/{id}','ControllerServeySheet@servey_sheet_delete');
     });
 });
-Route:: group(['prefix'=>'user'],function() {
+Route:: group(['prefix'=>'user',/*'middleware'=>'loginAdmin'*/],function() {
     Route::group(['prefix'=>'students'],function() {
         Route:: get('dashboard','UserController@getDashboardStudent');
     });
@@ -56,6 +56,10 @@ Route:: group(['prefix'=>'user'],function() {
     Route::group(['prefix'=>'lecturers'],function() {
         Route:: get('dashboard','UserController@getDashboardLecturer');
     });
+});
+
+Route::get('lecturers', function(){
+    return view('user.lecturers.index');
 });
 
 

@@ -1,12 +1,12 @@
 <!-- Page Content -->
-@extends('admin.layout.master')
+@extends('user.lecturers.master')
 @section('content')
 <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Xin Chào giáo viên
-                            <small>{{Auth::user()->username}}</small>
+                        <h1 class="page-header">
+                            Hello
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
