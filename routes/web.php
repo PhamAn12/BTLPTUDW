@@ -58,8 +58,8 @@ Route:: group(['prefix'=>'user',/*'middleware'=>'loginAdmin'*/],function() {
     });
 });
 
-Route::get('lecturers', function(){
-    return view('user.lecturers.index');
+Route::get('danhgia', function(){
+    return view('user.students.danhgia');
 });
 
 
