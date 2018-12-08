@@ -28,10 +28,10 @@
                             <a href="#"><i class="glyphicon glyphicon-list-alt"></i>Môn giảng dạy<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admin/servey/servey_sheet_list">Hệ quản trị</a>
+                                    <a href="giangvien/ketqua">Hệ quản trị</a>
                                 </li>
                                 <li>
-                                    <a href="admin/servey/servey_sheet_add">Phân tích thiết kế</a>
+                                    <a href="giangvien/ketqua">Phân tích thiết kế</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

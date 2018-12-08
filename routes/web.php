@@ -58,8 +58,22 @@ Route:: group(['prefix'=>'user',/*'middleware'=>'loginAdmin'*/],function() {
     });
 });
 
-Route::get('danhgia', function(){
-    return view('user.students.danhgia');
+Route::group(['prefix'=>'giangvien'], function(){
+    Route::get('dashboard', function(){
+        return view('user.lecturers.index');
+    });
+    Route::get('ketqua', function(){
+        return view('user.lecturers.ketqua');
+    });
+});
+
+Route::group(['prefix'=>'sinhvien'], function(){
+    Route::get('dashboard', function(){
+        return view('user.students.index');
+    });
+    Route::get('danhgia', function(){
+        return view('user.students.danhgia');
+    });
 });
 
 

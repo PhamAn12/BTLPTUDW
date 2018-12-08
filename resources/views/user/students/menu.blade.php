@@ -29,10 +29,10 @@
                             <a href="#"><i class="glyphicon glyphicon-list-alt"></i>Khóa học<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admin/servey/servey_sheet_list">Giải tích 2</a>
+                                    <a href="sinhvien/danhgia">Giải tích 2</a>
                                 </li>
                                 <li>
-                                    <a href="admin/servey/servey_sheet_add">Đại số</a>
+                                    <a href="sinhvien/danhgia">Đại số</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
