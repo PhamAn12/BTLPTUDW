@@ -36,7 +36,7 @@ class ControllerUserLecturer extends Controller
         
         $user->username = $request->txtUser;
         $user->password = bcrypt($request->txtPass);
-        $user->role = 2;
+        $user->role = $user_student->id;
         $user->created_at = Carbon::now();
         $user->updated_at = Carbon::now();        
         $user->save();

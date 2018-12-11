@@ -32,10 +32,17 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['username'=>$request->username,
-            'password'=> $request->password])) {
+            'password'=> $request->password, 'role'=>1])) {
                 return redirect('admin/dashboard');
         }
-            
+        else if(Auth::attempt(['username'=>$request->username,
+            'password'=> $request->password, 'role'=>2])) {
+                return redirect('user/students/dashboard');
+        }
+        else if(Auth::attempt(['username'=>$request->username,
+            'password'=> $request->password, 'role'=>3])) {
+                return redirect('user/lecturers/dashboard');
+        }  
         else 
             return redirect ('admin/login')->with('thongbao','Đăng nhập không thành công');
 
