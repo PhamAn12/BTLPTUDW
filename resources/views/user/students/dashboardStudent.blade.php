@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Xin Chào
+                        <h1 class="page-header">Xin Chào Học Sinh
                             <small>{{Auth::user()->username}}</small>
                         </h1>
                     </div>
