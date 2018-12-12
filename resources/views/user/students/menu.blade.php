@@ -28,13 +28,12 @@
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-list-alt"></i>Khóa học<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="sinhvien/danhgia">Giải tích 2</a>
-                                </li>
-                                <li>
-                                    <a href="sinhvien/danhgia">Đại số</a>
-                                </li>
-                            </ul>
+                                @foreach($monhoc as $mh)
+                                    <li>
+                                        <a href="sinhvien/danhgia/{{$mh->mamh}}">{{$mh->tenmonhoc}}</a>
+                                    </li>
+                                @endforeach
+                            </ul> 
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>

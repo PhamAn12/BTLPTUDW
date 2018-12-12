@@ -27,12 +27,12 @@
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-list-alt"></i>Môn giảng dạy<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="giangvien/ketqua">Hệ quản trị</a>
-                                </li>
-                                <li>
-                                    <a href="giangvien/ketqua">Phân tích thiết kế</a>
-                                </li>
+                                @foreach($monday as $a)
+                                    <li>
+                                        <a href="giangvien/ketqua/{{$a->mamh}}">{{$a->tenmonhoc}}</a>
+                                    </li>
+                                @endforeach
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

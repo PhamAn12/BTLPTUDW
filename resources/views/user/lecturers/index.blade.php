@@ -5,9 +5,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Hello
-                        </h1>
+                            @foreach($monday as $mh)
+                            <div class="col-lg-6 panel panel-default">
+                                <div class="panel-body">
+                                    <h4>{{$mh->tenmonhoc}}</h4>
+                                    <a href=""><button class="btn btn-primary">Chi tiết</button></a>
+                                </div> 
+                            </div>
+                            @endforeach
                     </div>
                     <!-- /.col-lg-12 -->
                     

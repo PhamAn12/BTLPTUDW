@@ -59,21 +59,19 @@ Route:: group(['prefix'=>'user',/*'middleware'=>'loginAdmin'*/],function() {
 });
 
 Route::group(['prefix'=>'giangvien'], function(){
-    Route::get('dashboard', function(){
-        return view('user.lecturers.index');
-    });
-    Route::get('ketqua', function(){
-        return view('user.lecturers.ketqua');
-    });
+    Route::get('dashboard', 'giangvien@show');
+    // Route::get('ketqua/{mamd}', 'giangvien@ketqua');
 });
 
 Route::group(['prefix'=>'sinhvien'], function(){
-    Route::get('dashboard', function(){
-        return view('user.students.index');
-    });
-    Route::get('danhgia', function(){
-        return view('user.students.danhgia');
-    });
+    Route::get('dashboard','sinhvien@show');
+    Route::get('danhgia/{mamh}', 'sinhvien@danhgia');
+    Route::post('danhgia/{mamh}', 'sinhvien@ketqua');
+});
+
+Route::group(['prefix'=>'giangvien'], function(){
+    Route::get('dashboard', 'giangvien@show');
+    Route::get('ketqua', 'giangvien@ketqua');
 });
 
 
