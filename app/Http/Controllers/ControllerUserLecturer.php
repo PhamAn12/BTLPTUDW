@@ -22,19 +22,42 @@ class ControllerUserLecturer extends Controller
         return view('admin.user.user_add');
     }
     public function user_post_add(Request $request) {
-      
+        $this->validate($request,
+            [
+                "username" => "required|unique:users",
+                "txtPass" => "required|confirmed",
+                "txtPass_confirmation" => "required",
+                "txtEmail" => "required",
+                "txtdate" => "required",
+                "rdoLevel" => "required"
+            ],
+
+            [
+                "confirmed" => ":attribute khong khop",
+                "required" => ":attribute khong duoc de trong"
+            ],
+
+            [
+                "username" => "Ten nguoi dung",
+                "txtPass" => "Mat khau",
+                "txtPass_confirmation" => "Nhap lai mat khau",
+                "txtEmail" => "Email",
+                "txtdate" => "Ngay tao"
+            ]
+
+        );
         
         $user_student = new User_lecturer;
-        $user_student->user = $request->txtUser;
+        $user_student->user = $request->username;
         $user_student->email = $request->txtEmail;
         $user_student->password = $request->txtPass;
-        $user_student->rePassword = $request->txtRePass;
+        $user_student->rePassword = $request->txtPass_confirmation;
         
         $user_student->create_at = Carbon::now();
         $user_student->save();
         $user = new User;
         
-        $user->username = $request->txtUser;
+        $user->username = $request->username;
         $user->password = bcrypt($request->txtPass);
         $user->role = 2;
         $user->created_at = Carbon::now();

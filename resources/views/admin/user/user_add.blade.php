@@ -9,13 +9,20 @@
                             <small>Add</small>
                         </h1>
                     </div>
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <li>{!! $error !!}</li>
+                            @endforeach
+                        </div>
+                    @endif
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
                         <form action="admin/user/user_add" method="POST">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" name="txtUser" placeholder="Please Enter Username" />
+                                <input class="form-control" name="username" placeholder="Please Enter Username" />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -23,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label>RePassword</label>
-                                <input type="password" class="form-control" name="txtRePass" placeholder="Please Enter RePassword" />
+                                <input type="password" class="form-control" name="txtPass_confirmation" placeholder="Please Enter RePassword" />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
