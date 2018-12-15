@@ -32,7 +32,7 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['username'=>$request->username,
-            'password'=> $request->password])) {
+            'password'=> $request->password,'role'=>0])) {
                 return redirect('admin/dashboard');
         }
             

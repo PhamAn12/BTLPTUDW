@@ -21,7 +21,7 @@ Route::get('admin/dashboard','UserController@getdashboard');
 
 
 Route::get('admin/logout','UserController@getlogout');
-Route:: group(['prefix' =>'admin',/*'middleware'=>'loginAdmin'*/],function() {
+Route:: group(['prefix' =>'admin'/*,'middleware'=>'loginAdmin'*/],function() {
     Route::get('dashboard','UserController@getdashboard');
     Route:: group(['prefix'=> 'user'],function(){
         Route:: get('user_list','ControllerUserLecturer@user_list');
