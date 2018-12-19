@@ -44,13 +44,13 @@
 <!-- END HEAD -->
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
-    @include('admin.layout.navigation')
+    @include('user.layout.navigation')
     <!-- BEGIN HEADER & CONTENT DIVIDER -->
     <div class="clearfix"> </div>
     <!-- END HEADER & CONTENT DIVIDER -->
     <!-- BEGIN CONTAINER -->
     <div class="page-container">
-        @include('admin.layout.menu')
+        @include('user.layout.menu')
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
@@ -174,4 +174,5 @@
 </body>
 
 </html>
+
 

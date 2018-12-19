@@ -3,7 +3,6 @@
     <!-- BEGIN HEADER INNER -->
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
-        
         <div class="page-logo">
             <a href="index.html">
                 <img src="assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
@@ -51,7 +50,7 @@
                                 <i class="icon-lock"></i>Settings </a>
                         </li>
                         <li>
-                            <a href="user/logout">
+                            <a href="admin/logout">
                                 <i class="icon-key"></i> Log Out </a>
                         </li>
                     </ul>

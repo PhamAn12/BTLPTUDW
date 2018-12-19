@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -46,7 +45,7 @@
                             {{session('thongbao')}}
                         </div>    
                         @endif
-                        <form role="form" action="admin/login" method="POST">
+                        <form role="form" action="login" method="POST">
                             {{ csrf_field() }}
                             <fieldset>
                                 

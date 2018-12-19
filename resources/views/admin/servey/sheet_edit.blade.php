@@ -17,7 +17,7 @@
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Câu Hỏi Cần Sửa</label>
-                                <input class="form-control" name="txtQuestion" value="{{$sheet->question_text}}" placeholder="Please Enter ..." />
+                                <input class="form-control" name="txtQuestion" value="{{$sheet->question_text}}" />
                             </div>
                             
                             <button type="submit" class="btn btn-default">Sửa</button>

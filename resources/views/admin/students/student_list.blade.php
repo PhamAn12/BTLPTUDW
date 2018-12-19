@@ -9,7 +9,7 @@
     <div class="portlet-title">
         <div class="caption">
             <i class="icon-settings font-red"></i>
-            <span class="caption-subject font-red sbold uppercase">LECTURER LIST</span>
+            <span class="caption-subject font-red sbold uppercase">STUDENT LIST</span>
         </div>
     </div>
     <div class="portlet-body">
@@ -27,7 +27,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Thêm sinh viên</h4>
+                                        <h4 class="modal-title">Modal Header</h4>
                                     </div>
                                     <div class="modal-body">
 
@@ -50,12 +50,12 @@
                                                 <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Mã GV</label>
+                                                <label>Course</label>
                                                 <input type="text" class="form-control" name="txtMagv" placeholder="Please Enter .." />
                                             </div>
                                             <button type="submit" class="btn btn-default">User Add</button>
                                             <button type="reset" class="btn btn-default">Reset</button>
-                                        <form>
+                                            <form>
 
                                             </div>
                                             <div class="modal-footer">
@@ -82,27 +82,32 @@
                 <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                     <thead>
                         <tr align="center">
-                            <th>Name</th>
+
                             <th>Username</th>
-                            <th>Email</th>
                             <th>PassWord</th>
-                            <th>Lecture Code</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
                             <th>Create At</th>
+                            <th>Modified At</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user_lecturer as $a)
-                        <tr class="odd gradeX">
-                            <td>{{$a->name}}</td>
-                            <td>{{$a->username}}</td>
-                            <td>{{$a->email}}</td>
+                        @foreach($user_student as $student)
+
+                        <tr class="odd gradeX" align="center">
+
+                            <td>{{$student->username}}</td>
                             <td>12345678</td>
-                            <td>{{$a->magv}}</td>
-                            <td>{{$a->created_at}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/xoa/{{$a->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/user_edit/{{$a->id}}">Edit</a></td>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->email}}</td>
+                            <td>{{$student->course}}</td>
+                            <td>{{$student->created_at}}</td>
+                            <td>{{$student->updated_at}}</td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/student/xoa/{{$student->username}}">Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/student/student_edit/{{$student->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>
