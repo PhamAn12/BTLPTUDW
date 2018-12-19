@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
+use App\User_lecturer;
+use App\User;
+use App\Subject;
 class UserController extends Controller
 {
     public function getlogin() {
@@ -18,7 +22,12 @@ class UserController extends Controller
     }
 
     public function getDashboardLecturer() {
-        return view ('user.lecturers.dashboardLecturer');
+
+        $lecturer = DB::table('user_lecturer')
+        ->join('subject','user_lecturer.id','=','subject.idlecturer')
+        ->where('user_id','=',Auth::user()->username)->get();
+
+        return view ('user.lecturers.dashboardLecturer')->with('lecturer',$lecturer);
     }
     public function postlogin(Request $request) {
         $this->validate($request,[
@@ -32,17 +41,31 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['username'=>$request->username,
-            'password'=> $request->password,'role'=>0])) {
-                return redirect('admin/dashboard');
-        }
-            
-        else 
-            return redirect ('admin/login')->with('thongbao','Đăng nhập không thành công');
-
+            'password'=> $request->password, 'role'=>0])) {
+            return redirect('admin/dashboard');
     }
+    else if(Auth::attempt(['username'=>$request->username,
+        'password'=> $request->password, 'role'=>2])) {
+        return redirect('user/students/dashboard');
 
-    public function getlogout() {
-        Auth::logout();
-        return redirect ('admin/login');
-    }
+}
+else if(Auth::attempt(['username'=>$request->username,
+    'password'=> $request->password, 'role'=>1])) {
+
+    return redirect('user/lecturers/dashboard');
+
+}  
+else 
+    return redirect ('login')->with('thongbao','Đăng nhập không thành công');
+
+}
+
+public function getlogout() {
+    Auth::logout();
+    return redirect ('login');
+}
+
+public function admin_list() {
+    return view('admin.admin_list');
+}
 }

@@ -1,11 +1,11 @@
 <?php
 
 namespace App;
-use Carbon\Carbon;
+
 use Illuminate\Database\Eloquent\Model;
 
-class User_student extends Model
+class Answer extends Model
 {
-    protected $table = 'user_student';
+    protected $table = "answer";
     public $timestamps = false;
 }

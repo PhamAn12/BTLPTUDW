@@ -14,15 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('admin/login','UserController@getlogin');
-Route::post('admin/login','UserController@postlogin');
+Route::get('login','UserController@getlogin');
+Route::post('login','UserController@postlogin');
 
 Route::get('admin/dashboard','UserController@getdashboard');
 
 
 Route::get('admin/logout','UserController@getlogout');
-Route:: group(['prefix' =>'admin'/*,'middleware'=>'loginAdmin'*/],function() {
+Route:: group(['prefix' =>'admin','middleware'=>'loginAdmin'],function() {
     Route::get('dashboard','UserController@getdashboard');
+    Route::get('admin_list','UserController@admin_list');
     Route:: group(['prefix'=> 'user'],function(){
         Route:: get('user_list','ControllerUserLecturer@user_list');
 
@@ -32,7 +33,22 @@ Route:: group(['prefix' =>'admin'/*,'middleware'=>'loginAdmin'*/],function() {
         Route:: get('user_add','ControllerUserLecturer@user_get_add');
         Route:: post('user_add','ControllerUserLecturer@user_post_add');
 
+        Route::post('user_addone','ControllerUserLecturer@user_post_addone');
         Route:: get('xoa/{id}','ControllerUserLecturer@user_delete');    
+
+        
+    });
+    Route:: group(['prefix'=> 'student'],function(){
+        Route:: get('student_list','ControllerUserStudent@user_list');
+
+        Route:: get('student_edit/{id}','ControllerUserStudent@student_get_edit');
+        Route:: post('student_edit/{id}','ControllerUserStudent@student_post_edit');
+
+        Route:: get('student_add','ControllerUserStudent@student_get_add');
+        Route:: post('student_add','ControllerUserStudent@student_post_add');
+
+        Route::post('student_addone','ControllerUserStudent@student_post_addone');
+        Route:: get('xoa/{id}','ControllerUserStudent@student_delete');    
 
         
     });
@@ -47,21 +63,33 @@ Route:: group(['prefix' =>'admin'/*,'middleware'=>'loginAdmin'*/],function() {
 
         Route:: get('delete/{id}','ControllerServeySheet@servey_sheet_delete');
     });
+    Route::group(['prefix'=>'survey'],function() {
+        Route::get('survey_list','ControllerSurvey@survey_list');
+
+        Route:: get('survey_add','ControllerSurvey@survey_get_add');
+        Route:: post('survey_add','ControllerSurvey@survey_post_add');
+    });
 });
-Route:: group(['prefix'=>'user',/*'middleware'=>'loginAdmin'*/],function() {
-    Route::group(['prefix'=>'students'],function() {
+Route::get('user/logout','UserController@getlogout');
+Route:: group(['prefix'=>'user'],function() {
+    
+    Route::group(['prefix'=>'students','middleware'=>'loginStudent'],function() {
         Route:: get('dashboard','UserController@getDashboardStudent');
+
+        Route::get('feedback/{id}/{id2}','ControllerSubject@getFeedback');
+        Route::post('feedback/{id}/{id2}','ControllerSubject@postFeedback');
+
     });
 
-    Route::group(['prefix'=>'lecturers'],function() {
+    Route::group(['prefix'=>'lecturers','middleware'=>'loginLecturer'],function() {
         Route:: get('dashboard','UserController@getDashboardLecturer');
+        Route:: get('subject_list','ControllerSubject@getList');
+
+        Route::get('result/{id}','ControllerSubject@getResult');
     });
 });
 
-Route::get('danhgia', function(){
-    return view('user.students.danhgia');
+
+Route:: get('test',function(){
+    return view('admin.layout.master');
 });
-
-
-
-
