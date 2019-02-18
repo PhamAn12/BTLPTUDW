@@ -17,9 +17,9 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="btn-group">
-						<button class="btn green" data-toggle="modal" data-target="#myModal">Add new
+						<!-- <button class="btn green" data-toggle="modal" data-target="#myModal">Add new
 							<i class="fa fa-plus"></i>
-						</button>
+						</button> -->
 						<div class="modal fade" id="myModal" role="dialog">
 							<div class="modal-dialog">
 
@@ -72,7 +72,7 @@
 							<th> Tên cuộc khảo sát </th>
 							<th> Created at</th>
 							<th> Modefied at</th>
-							<th> Responses</th>
+							
 							<th> Edit </th>
 							<th> Delete </th>
 						</tr>
@@ -83,7 +83,7 @@
 							<td>{{$list->name}}</td>
 							<td>{{$list->created_at}}</td>
 							<td>{{$list->updated_at}}</td>
-							<td><a href="#">3 response</a></td>
+							
 							<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#">Delete</a></td>
 							<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
 						</tr>

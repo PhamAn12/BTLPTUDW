@@ -21,7 +21,7 @@
 @section('subject')
 @foreach($lecturer as $l)
 <li class="nav-item ">
-    <a href="user/lecturers/result/{{$l->id}}" id="{{$l->id}}"> {{$l->subject_name}}
+    <a href="user/lecturers/result/{{$l->idsurvey}}" id="{{$l->id}}"> {{$l->subject_name}}
     </a>
 </li>
 @endforeach

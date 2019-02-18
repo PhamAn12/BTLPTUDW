@@ -5,17 +5,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Kết quả học phần người học về học phần </h2>
-                        <h2>Học kỳ </h2>
-                        <p>Ten hoc phần: {{$subject[0]->subject_name}}</p>
-                        <p>Tên giảng viên:</p>
-                        <p>Số lượng sinh viên đánh giá</p>
-                        <p>Số lượng giảng viên tham gia dạy môn học </p>
-                        <p>Số lượng môn học giảng viên tham gia giảng dạy</p>
-                        <table class="table table-hover">
+                        <h2 align="center" class="caption-subject uppercase">Kết quả đánh giá của người học về học phần</h2>
+                        <h2 align="center" >{{$subject[0]->hocky}} </h2>
+                        <p>Tên học phần: {{$subject[0]->subject_name}} <br>
+                        Tên giảng viên: {{$subject[0]->name}} <br>
+                        
+                        </p>
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
+                                    
                                     <th>Tiêu chí</th>
                                     <th>M</th>
                                     <th>STD</th>
@@ -26,19 +25,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($result as $r)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Giảng đường đáp ứng yêu cầu của môn học</td>
-                                    <td>3.33</td>
-                                    <td>3.33</td>
-                                    <td>3.33</td>
-                                    <td>3.33</td>
-                                    <td>3.33</td>
-                                    <td>3.33</td>
+                                    
+                                    <td>{{$r->question_text}}</td>
+                                    <td>{{$r->M}}</td>
+                                    <td>{{$r->STD}}</td>
+                                    <td>{{$r->M1}}</td>
+                                    <td>{{$r->STD1}}</td>
+                                    <td>{{$r->M2}}</td>
+                                    <td>{{$r->STD2}}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
-                        <p>Ghi chú</p>
+                        <p><strong>Ghi chú :</strong></p>
                         <p>-M: giá trị trung bình của các tiêu chí theo lớp học phần</p>
                         <p>-STD: độ lệch chuẩn của các tiêu chí theo lớp học phần</p>
                         <p>-M1: giá trị trung bình các tiêu chí dựa trên dữ liệu phản hồi</p>
@@ -59,7 +60,7 @@
 @section('subject')
 @foreach($lecturer as $l)
 <li class="nav-item ">
-    <a href="user/lecturers/result/{{$l->id}}" id="{{$l->id}}"> {{$l->subject_name}}
+    <a href="user/lecturers/result/{{$l->idsurvey}}" id="{{$l->id}}"> {{$l->subject_name}}
     </a>
 </li>
 @endforeach

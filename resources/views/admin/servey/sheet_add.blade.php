@@ -1,31 +1,111 @@
+
 <!-- Page Content -->
 @extends('admin.layout.master')
-@section('content')
-<div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Thêm câu hỏi
-                            <small>Add</small>
-                        </h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                    <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="admin/servey/servey_sheet_add" method="POST">
-                        {{ csrf_field() }}
-                            <div class="form-group">
-                                <label>Câu Hỏi</label>
-                                <input class="form-control" name="txtQuestion" placeholder="Please Enter Username" />
-                            </div>
-                            
-                            <button type="submit" class="btn btn-default">Thêm Câu hỏi</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
+@section('css')
+<style>
+.error{
+    color: #FF3300;
+}
+.input-group .form-control:last-child{
+    width: 730px;
+}
+.input-group .form-control.error{
+    width: 730px;
+}
+</style>
 @endsection
+@section('content')
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+
+        @if ( Session::has('success') )
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{{ Session::get('success') }}</strong>
+    </div>
+    @endif
+
+    @if ( Session::has('error') )
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{{ Session::get('error') }}</strong>
+    </div>
+    @endif
+
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <div>
+        @foreach ($errors->all() as $error)
+        <p>{{ $error }}</p>
+        @endforeach
+    </div>
+</div>
+@endif
+
+<form method="POST" id="formid" action="admin/servey/servey_sheet_addfile" enctype="multipart/form-data">
+
+    {{ csrf_field() }}
+    <!-- COMPONENT START -->
+    <h3>Chọn version phiếu</h3>
+    <select class="form-control" name="ver1" id="ver1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select> <br>
+    <h3>Chọn phiếu</h3>
+    <div class="form-group">
+        <div class="input-group input-file" name="Fichier1">
+            <input type="file" name="import_file" class="form-control" placeholder='Choose a file...' />           
+
+
+
+        </div>
+    </div>
+    <!-- COMPONENT END -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+</form>
+</div>
+</div>
+
+@endsection
+@section('script')
+<script src="assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<script src="assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+
+<script src="assets/pages/scripts/table-datatables-editable.min.js" type="text/javascript"></script>
+<script>
+    $(function() {
+        $('#formid').validate({
+            rules : {
+                import_file : {
+                    required : true,
+                    mimes : 'xls,xlsx'
+                }
+            },
+            messages : {
+                import_file : {
+                    required : "Bạn cần nhập file",
+                    mimes : "Bạn chỉ được nhập file xls hoặc xlsx"
+                }
+            },
+
+
+        });
+    })
+</script>
+
+@endsection
+

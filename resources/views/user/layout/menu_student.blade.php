@@ -56,7 +56,7 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="#" class="nav-link ">
+                    <a href="user/students/infor" class="nav-link ">
                         <span class="title">Xem</span>
                     </a>
                 </li>

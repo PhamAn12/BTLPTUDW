@@ -60,6 +60,11 @@
                             <span class="title">Xem</span>
                         </a>
                     </li>
+                    <li class="nav-item  ">
+                        <a href="admin/survey/survey_addfile" class="nav-link ">
+                            <span class="title">Thêm</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item  ">
@@ -136,14 +141,9 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item ">
-                                <a href="admin/user/user_list" class="nav-link " target="_blank"> Danh Sách
+                                <a href="admin/admin_list" class="nav-link " target="_blank"> Danh Sách
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a href="admin/user/user_add" class="nav-link " target="_blank"> Thêm mới
-                                </a>
-                            </li>
-                            
 
                         </ul>
                     </li>
